@@ -29,7 +29,7 @@ picklers = [pickle,cPickle]
 sios = [StringIO,cStringIO]            
 
 def benchmark(obj):
-    minTime = 10.0
+    minTime = 120.0
     modules = list(itertools.product(picklers,sios))
     modules.reverse()
     
@@ -38,7 +38,7 @@ def benchmark(obj):
     for p,sio in modules:
         results['%s %s' % (p.__name__,sio.__name__,)] = []
         
-    for l in range(4,16):
+    for l in range(4,17):
         l = 2**l
         l -= 1
         for p,sio in modules:
